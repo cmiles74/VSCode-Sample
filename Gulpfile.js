@@ -82,3 +82,4 @@ gulp.task('browser-sync', function() {
 
 // our default task is to build the app and start the watch
 gulp.task('default', ['react', 'copyJs', 'lint', 'browserify', 'style', 'html', 'watch', 'browser-sync']);
+gulp.task('run', ['default']);

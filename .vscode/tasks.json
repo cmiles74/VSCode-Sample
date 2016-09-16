@@ -2,20 +2,29 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "command": "dotnet",
+    "command": "/developer/.npm/bin/gulp",
     "isShellCommand": true,
+    "showOutput": "always",
     "args": [],
-    "tasks": [
-        {
-            "taskName": "build",
-            "args": [ ],
-            "isBuildCommand": true,
-            "showOutput": "silent",
-            "problemMatcher": "$msCompile"
-        }, {
-            "taskName": "run",
-            "args": [ ],
-            "isBuildCommand": true 
-        }
-    ]
+    "tasks": [{
+        "taskName": "build",
+        "args": ["react", "copyJs", "lint", "browserify", "style", "html"],
+        "isBuildCommand": true,
+        "isWatching": false,
+        "problemMatcher": [
+            "$lessCompile",
+            "$tsc",
+            "$jshint"
+        ]
+    }, {
+        "taskName": "run",
+        "args": [],
+        "isBuildCommand": false,
+        "isWatching": true,
+        "problemMatcher": [
+            "$lessCompile",
+            "$tsc",
+            "$jshint"
+        ]
+    }]
 }
