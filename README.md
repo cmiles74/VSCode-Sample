@@ -1,39 +1,56 @@
-# Welcome to ASP.NET Core
+# Working Sample ASP.Net Core with Web API Application
 
-We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
+This project provides a sample ASP.Net Core web application with Web API that
+will build and run on .Net Core 1.0.1. It will server up a sample single page
+web application that uses Bootstrap and React. The general idea is that you 
+would *copy* the repository and use it as a basis for your own project.
 
-You've created a new ASP.NET Core project. [Learn what's new](https://go.microsoft.com/fwlink/?LinkId=518016)
+This sample project pairs well with my [Visual Studio Code (VS Code) Docker 
+image](https://github.com/cmiles74/docker-vscode). That image includes
+everything you need to get started and it's all setup and sorted out for you.
+This project includes VSCode tasks and launch targets to make development
+easier.
 
-## This application consists of:
+## Building the Application
 
-*   Sample pages using ASP.NET Core MVC
-*   [Bower](https://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side libraries
-*   Theming using [Bootstrap](https://go.microsoft.com/fwlink/?LinkID=398939)
+To build the application, open up a terminal session (in VS Code, choose 
+"Integrated Terminal" from under the "View" menu) and type...
 
-## How to
+    dotnet build
 
-*   [Add a Controller and View](https://go.microsoft.com/fwlink/?LinkID=398600)
-*   [Add an appsetting in config and access it in app.](https://go.microsoft.com/fwlink/?LinkID=699562)
-*   [Manage User Secrets using Secret Manager.](https://go.microsoft.com/fwlink/?LinkId=699315)
-*   [Use logging to log a message.](https://go.microsoft.com/fwlink/?LinkId=699316)
-*   [Add packages using NuGet.](https://go.microsoft.com/fwlink/?LinkId=699317)
-*   [Add client packages using Bower.](https://go.microsoft.com/fwlink/?LinkId=699318)
-*   [Target development, staging or production environment.](https://go.microsoft.com/fwlink/?LinkId=699319)
+To build the client side application, type...
 
-## Overview
+    gulp build
 
-*   [Conceptual overview of what is ASP.NET Core](https://go.microsoft.com/fwlink/?LinkId=518008)
-*   [Fundamentals of ASP.NET Core such as Startup and middleware.](https://go.microsoft.com/fwlink/?LinkId=699320)
-*   [Working with Data](https://go.microsoft.com/fwlink/?LinkId=398602)
-*   [Security](https://go.microsoft.com/fwlink/?LinkId=398603)
-*   [Client side development](https://go.microsoft.com/fwlink/?LinkID=699321)
-*   [Develop on different platforms](https://go.microsoft.com/fwlink/?LinkID=699322)
-*   [Read more on the documentation site](https://go.microsoft.com/fwlink/?LinkID=699323)
+Or, in VS Code, choose the "Command Palette" from under the "View" and type 
+"build" to choose "Run Build Task", or press `Ctrl-Shift-B`.
 
-## Run & Deploy
+The client side application will build into the "wwwroot" folder so that it
+can be served up by the server side application.
 
-*   [Run your app](https://go.microsoft.com/fwlink/?LinkID=517851)
-*   [Run tools such as EF migrations and more](https://go.microsoft.com/fwlink/?LinkID=517853)
-*   [Publish to Microsoft Azure Web Apps](https://go.microsoft.com/fwlink/?LinkID=398609)
+## Running the Application
 
-We would love to hear your [feedback](https://go.microsoft.com/fwlink/?LinkId=518015)
+To run the server side application, open up a terminal session and type...
+
+    dotnet run
+
+In VS Code, you can select "Debug" from under the "View" menu and choose the
+".Net Core Launch (web)" target. This will also attempt to open the application
+in your default web browser.
+
+In both cases, the server side application will build (if necessary) and then
+start running. The server application will serve the static files in the
+"wwwroot" folder, this contains the client side application.
+
+That's all well and good, but not much fun from a development point-of-view.
+To develop interactively, you can type the following in your terminal session:
+
+    gulp run
+
+In VS Code, you can invoke the "Command Palette" and type "run" to select the
+"Run Test Task" option.
+
+## Stopping the Application in Visual Studio Code
+
+To stop the running application task in VS Code, you can invoke the "Command
+Palette" and type "term" to select "Tasks: Terminate Running Task".

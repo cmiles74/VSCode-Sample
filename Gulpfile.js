@@ -80,6 +80,8 @@ gulp.task('browser-sync', function() {
     });
 });
 
+gulp.task('build', ['react', 'copyJs', 'lint', 'browserify', 'style', 'html']);
+
 // our default task is to build the app and start the watch
-gulp.task('default', ['react', 'copyJs', 'lint', 'browserify', 'style', 'html', 'watch', 'browser-sync']);
+gulp.task('default', ['build', 'watch', 'browser-sync']);
 gulp.task('run', ['default']);
