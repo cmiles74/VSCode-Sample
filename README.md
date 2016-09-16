@@ -48,7 +48,7 @@ To develop interactively, you can type the following in your terminal session:
     gulp run
 
 In VS Code, you can invoke the "Command Palette" and type "run" to select the
-"Run Test Task" option.
+"Run Task" option and then choose "run".
 
 ## Stopping the Application in Visual Studio Code
 
