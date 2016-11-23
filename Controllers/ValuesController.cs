@@ -13,7 +13,7 @@ namespace Working.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            string[] values = {"Emily", "Joanna", "Miles", "Howard"};
+            string[] values = {"Emily", "Joanna", "Miles"};
             return values; 
         }
 
