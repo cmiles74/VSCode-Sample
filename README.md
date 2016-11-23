@@ -28,6 +28,14 @@ Or, in VS Code, choose the "Command Palette" from under the "View" and type
 The client side application will build into the "wwwroot" folder so that it
 can be served up by the server side application.
 
+## Setup the Database
+
+The application uses a SQLite database to store it's data, it's stored on-disk
+in `bin\Debug\netcoreapp1.0`. After building the application, apply the
+migrations to create this database.
+
+    dotnet ef database update
+    
 ## Running the Application
 
 To run the server side application, open up a terminal session and type...

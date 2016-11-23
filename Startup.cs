@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Working.Models;
 
 namespace Working
 {
@@ -28,6 +29,7 @@ namespace Working
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<WorkingContext>();
             services.AddMvc();
         }
 
@@ -36,6 +38,11 @@ namespace Working
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            using(var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                serviceScope.ServiceProvider.GetService<WorkingContext>().EnsureSeedData();
+            }
             
             app.UseDefaultFiles();
             app.UseStaticFiles();

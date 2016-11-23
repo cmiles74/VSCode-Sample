@@ -35,7 +35,7 @@ var FriendsBox = React.createClass({
 var FriendsList = React.createClass({
     render: function() {
         var friendNodes = this.props.data.map(function (friend) {
-            return (<li key={friend}>{friend}</li>);
+            return (<li key={friend.id}>{friend.name}</li>);
         });
         return (
             <ul className="friendList">
