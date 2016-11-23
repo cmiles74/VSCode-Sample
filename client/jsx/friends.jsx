@@ -46,5 +46,5 @@ var FriendsList = React.createClass({
 });
 
 ReactDOM.render(
-    <FriendsBox url='/api/values' />, document.getElementById('friends')
+    <FriendsBox url='/api/friends' />, document.getElementById('friends')
 );
