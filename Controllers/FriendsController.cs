@@ -16,14 +16,14 @@ namespace Working.Controllers
             db = context;
         }
         
-        // GET api/values
+        // GET api/friends
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(db.Friends.ToList());
         }
 
-        // GET api/values/5
+        // GET api/friends/5
         [HttpGet("{id}", Name = "GetOne")]
         public IActionResult Get(int id)
         {
@@ -37,7 +37,7 @@ namespace Working.Controllers
             return Ok(friend);
         }
 
-        // POST api/values
+        // POST api/friends
         [HttpPost]
         public IActionResult Post([FromBody]Friend friend)
         {
@@ -51,7 +51,7 @@ namespace Working.Controllers
             return BadRequest();
         }
 
-        // PUT api/values/5
+        // PUT api/friends/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Friend friendUpdate)
         {
@@ -74,7 +74,7 @@ namespace Working.Controllers
             return BadRequest();
         }
 
-        // DELETE api/values/5
+        // DELETE api/friends/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
