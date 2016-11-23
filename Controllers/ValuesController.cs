@@ -13,8 +13,8 @@ namespace Working.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            string[] values = {"Emily", "Joanna"};
-            return values;
+            string[] values = {"Emily", "Joanna", "Miles", "Howard"};
+            return values; 
         }
 
         // GET api/values/5
@@ -40,6 +40,7 @@ namespace Working.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            string[] test = {"1", "2"};
         }
     }
 }
