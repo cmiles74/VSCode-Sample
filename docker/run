@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# allow X11 access
+xhost +local:docker
+
+# start vscode
+docker run -d \
+      -d \
+      -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+      -v ${PWD}:/developer/project \
+      -v ${HOME}/.vscode:/developer/.vscode \
+      -v ${HOME}/.config/Code:/developer/.config/Code \
+      -v ${HOME}/.ssh:/developer/.ssh \
+      -v ${HOME}/.gitconfig:/developer/.gitconfig \
+      -v ${SSH_AUTH_SOCK}:/ssh_auth_sock \
+      -e SSH_AUTH_SOCK=/ssh_auth_sock \
+      -e DISPLAY=unix${DISPLAY} \
+      -p 5000:5000 \
+      -p 3000:3000 \
+      -p 3001:3001 \
+      --device /dev/snd \
+      --name vscode-working \
+      cmiles74/docker-vscode
+
+docker exec vscode-working /developer/bin/start-vscode
+docker exec vscode-working /developer/bin/start-emacs
+

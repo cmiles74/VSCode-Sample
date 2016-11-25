@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# allow X11 access
+xhost +local:docker
+
+# start containers
+docker start vscode-working
+docker exec vscode-working /developer/bin/start-vscode
+docker exec vscode-working /developer/bin/start-emacs
