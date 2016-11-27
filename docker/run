@@ -3,6 +3,16 @@
 # allow X11 access
 xhost +local:docker
 
+# start sql server
+# docker run \
+#         -d \
+#         -e 'ACCEPT_EULA=Y' \
+#         -e 'SA_PASSWORD=pear2010' \
+#         -p 1433:1433 \
+#         -v ${PWD}/data:/var/opt/mssql \
+#         --name vscode-working-sql-server \
+#         microsoft/mssql-server-linux
+
 # start vscode
 docker run -d \
       -d \
@@ -20,6 +30,7 @@ docker run -d \
       -p 3001:3001 \
       --device /dev/snd \
       --name vscode-working \
+      --link vscode-working-sql-server:sql-server \
       cmiles74/docker-vscode
 
 docker exec vscode-working /developer/bin/start-vscode

@@ -1,3 +1,4 @@
 #!/bin/bash
 docker stop vscode-working
+#docker stop vscode-working-sql-server
 

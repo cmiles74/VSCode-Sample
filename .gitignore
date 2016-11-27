@@ -233,6 +233,9 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
+# sql server data
+data/*
+
 # project
 client/js-out/*
 
