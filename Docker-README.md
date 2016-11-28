@@ -54,15 +54,4 @@ these tools, if you get it working let me know!
 Build and Run the Project
 -------------------------------
 
-Lastly, build the project...
-
-    dotnet build
-    
-Run the server...
-
-    dotnet run
-    
-And start the client web application...
-
-    gulp 
-
+From here, you can follow along with the main project README file.
