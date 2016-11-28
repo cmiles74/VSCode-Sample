@@ -30,7 +30,6 @@ docker run -d \
       -p 3001:3001 \
       --device /dev/snd \
       --name vscode-working \
-      --link vscode-working-sql-server:sql-server \
       cmiles74/docker-vscode
 
 docker exec vscode-working /developer/bin/start-vscode
