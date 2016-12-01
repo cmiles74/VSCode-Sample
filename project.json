@@ -28,16 +28,17 @@
 
   "tools": {
       "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-*",
-      "Microsoft.EntityFrameworkCore.Tools.DotNet": "1.1.0-*"
+      "Microsoft.EntityFrameworkCore.Tools.DotNet": {
+        "version": "1.1.0-preview3-final",
+        "imports": [
+          "portable-net45+win8"
+        ]
+      }
   },
 
   "frameworks": {
     "net451": {},
     "netcoreapp1.1": {
-      "imports": [
-        "dotnet5.6",
-        "portable-net45+win8"
-       ],
       "dependencies": {
         "Microsoft.NETCore.App": {
           "version": "1.1.0*",
