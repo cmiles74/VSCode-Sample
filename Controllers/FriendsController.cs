@@ -13,7 +13,7 @@ namespace Working.Controllers
         private WorkingContext db;
 
         public FriendsController(WorkingContext context) {
-            db = context;
+            db = context; 
         }
         
         // GET api/friends
