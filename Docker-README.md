@@ -33,7 +33,7 @@ NodeJS comes installed, you just need to setup Gulp and pull down the project's
 dependencies.
 
     npm install --global gulp-cli
-    npm install    
+    npm install
 
 ### Optional Emacs Dependencies
 
