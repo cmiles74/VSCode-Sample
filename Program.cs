@@ -1,34 +1,45 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
+using Serilog;
+using Serilog.Events;
 
 namespace Working
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
-            var config = new ConfigurationBuilder()
-                .AddCommandLine(args)
-                .AddEnvironmentVariables(prefix: "ASPNETCORE_")
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("hosting.json", optional: true)
-                .Build();
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+            .Enrich.FromLogContext()
+            .CreateLogger();
 
-            var host = new WebHostBuilder()
-                .UseConfiguration(config)
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
+            try
+            {
+                Log.Information("Starting web host");
+
+                BuildWebHost(args).Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Host terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+            
+        }
+
+        public static IWebHost BuildWebHost(string[] args) {
+            return WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://*:5000;")
                 .UseStartup<Startup>()
+                .UseSerilog()
                 .Build();
-
-            host.Run();
         }
     }
 }
