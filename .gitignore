@@ -235,7 +235,13 @@ _Pvt_Extensions
 
 # sql server data
 data/*
+Friends.db
+
+# javascript packages
+package-lock.json
 
 # project
 client/js-out/*
 
+# logging
+Logs/
