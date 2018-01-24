@@ -63,5 +63,4 @@ In VS Code, you can invoke the "Command Palette" and type "run" to select the
 To stop the running application task in VS Code, you can invoke the "Command
 Palette" and type "term" to select "Tasks: Terminate Running Task".
 
-
 ~
