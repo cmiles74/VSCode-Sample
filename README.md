@@ -11,14 +11,44 @@ everything you need to get started and it's all setup and sorted out for you.
 This project includes VSCode tasks and launch targets to make development
 easier.
 
+NOTE: This project hasn't been updated in a while and is pretty out-of-date.
+
+## Installing Project Dependencies
+
+First off, you need .Net Core 1.0.1 or better installed. Installation is 
+different depending on the operating system you are using, check out these
+pages for more information. If you are using Visual Studio, you might be all
+set already. 
+
+ * [.Net Core](https://www.microsoft.com/net)
+
+This application uses NodeJS and Gulp to build the client-site 
+application. If you don't have NodeJS installed, you can download it from the
+Node.js website, I recommend using the "LTS" version.
+
+ * [Node.js Download Page](https://nodejs.org/en/download/)
+
+Node.js comes with the Node Package Manager (NPM). To install the Grunt tool, 
+open a terminal session  (in VS Code, choose "Integrated Terminal" from 
+under the "View" menu, in Visual Studio open up a new command prompt window 
+and navigate into your project folder) and type
+
+    npm install -g grunt-cli
+
+After install Grunt on Windows, you may have to open a new terminal session 
+before you can actually use it.
+
 ## Building the Application
 
-To build the application, open up a terminal session (in VS Code, choose 
-"Integrated Terminal" from under the "View" menu) and type...
+To build the application, open up a terminal session and type...
 
     dotnet build
 
-To build the client side application, type...
+If you are using Visual Studio, you may simply choose "Build Solution" from 
+under the "Build" menu.
+
+To build the client side application, type the following into a terminal 
+session...
 
     gulp build
 
@@ -35,7 +65,7 @@ in `bin\Debug\netcoreapp1.0`. After building the application, apply the
 migrations to create this database.
 
     dotnet ef database update
-    
+
 ## Running the Application
 
 To run the server side application, open up a terminal session and type...
