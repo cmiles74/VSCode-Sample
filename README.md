@@ -11,6 +11,8 @@ everything you need to get started and it's all setup and sorted out for you.
 This project includes VSCode tasks and launch targets to make development
 easier.
 
+NOTE: This project hasn't been updated in a while and is pretty out-of-date.
+
 ## Building the Application
 
 To build the application, open up a terminal session (in VS Code, choose 
